@@ -29,27 +29,9 @@ UITableView嵌套滚动框架,swift3.0实现,简单易用,快速集成类似两�
 
 ``` 
   // 子控制器实现协议定制section样式,仅当使用默认的sectionView才有效
-    extension ViewController: UITableViewDataSource{
+    extension ViewController: EmbedViewControllerEmbedTarget{
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(arc4random_uniform(100))
-    }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let kUITableViewCellReuseID = "UITableViewCell"
-        
-        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: kUITableViewCellReuseID)
-        
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: kUITableViewCellReuseID)
-            
-        }
-        
-        cell.textLabel?.text = "我是第几行\(indexPath.row)"
-        
-        return cell
-    }
     
     override var targetView: UIView {
         
